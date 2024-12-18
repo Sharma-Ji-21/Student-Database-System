@@ -36,7 +36,7 @@ function handleAddStudent(event) {
     createUserWithEmailAndPassword(auth, email, password)  
         .then(({ user }) => {  
             // Store the user's data in Realtime Database
-            set(ref(database, `students/${user.uid}`), { name, rollNumber })  
+            set(ref(database, `students/${user.uid}`), { name, rollNumber, email, password })  
                 .then(() => {  
                     alert('Student added successfully!');  
                 })

@@ -10,7 +10,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: url('https://static.vecteezy.com/system/resources/previews/035/726/869/non_2x/nobody-school-classroom-interior-with-teachers-desk-and-blackboard-cartoon-school-education-background-classroom-interior-meeting-room-illustration-in-a-flat-style-vector.jpg') no-repeat center center/cover;
+    background: url('https://t3.ftcdn.net/jpg/01/16/88/82/360_F_116888225_9Wh82kihECBsbau4uCHwdrzO09hXa3zZ.jpg') no-repeat center center/cover;
     background-attachment: fixed;
 }
 
@@ -25,7 +25,7 @@ body {
 
 /*Login Box */
 .login-box {
-    background-color: #e0e8f0;
+    background-color: #8db6df;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     padding: 30px;
@@ -59,21 +59,21 @@ h2 {
 
 /* Student Box */
 .student-box .login-button {
-    background-color: #4caf50;
+    background-color: #075a84;
 }
 
 .student-box .login-button:hover {
-    background-color: #45a049;
+    background-color: #0336ee;
     transform: scale(1.05);
 }
 
 /* Teacher Box */
 .teacher-box .login-button {
-    background-color: #f39c12;
+    background-color: #075a84;
 }
 
 .teacher-box .login-button:hover {
-    background-color: #e67e22;
+    background-color: #0336ee;
     transform: scale(1.05);
 }
 

@@ -37,10 +37,10 @@ body{
 nav{
     margin-top: 20px;
     position:relative;
-    margin-left: 470px;
+    margin-left: 520px;
     display:flex;
     justify-content: center;
-    width:540px;
+    width:480px;
     height:60px;
     background:#000000;
     border-radius:8px;
@@ -63,7 +63,7 @@ nav span{
     position:absolute;
     top:0;
     left:0;
-    width:105px;
+    width:100px;
     height:100%;
     background:linear-gradient(25deg,#006eff,#2c8efe);
     border-radius:8px;
@@ -71,22 +71,22 @@ nav span{
 }
 nav a:nth-child(1):hover~span{
     left:0;
-    width:105px;
+    width:100px;
 }
  nav a:nth-child(2):hover~span{
     left:100px;
-    width:105px;
+    width:100px;
 }
 nav a:nth-child(3):hover~span{
-    left:205px;
-    width:105px
+    left:180px;
+    width:100px
 }
 nav a:nth-child(4):hover~span{
-    left:320px;
+    left:265px;
     width:105px; 
 }
 nav a:nth-child(5):hover~span{
-    left:430px;/*span left se kitna dur hai*/
+    left:370px;/*span left se kitna dur hai*/
     width:110px;/*span ki width*/
     /* left:189px; */
     
@@ -136,6 +136,8 @@ nav a:nth-child(5):hover~span{
     color: #fff ;
     
 }
+
+/* Clubs */
 #MainHeadingOfClubsOfPst{
     text-align: center;
     font-size: 40px;
@@ -249,34 +251,20 @@ nav a:nth-child(5):hover~span{
     transform: scale(1.02);
 }
 
-
-/* #MentorHeading{
-    font-size: 70px;
-    color: #ffffff;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; 
-    margin-top: 350px;
-    margin-left: 250px;
-    font-style:bold ;
-    
-} */
-
-
-
-
-
-
-#Aboutus{
+/* SDS */
+#StudentDatabaseSystemHeading{
     text-align: center;
     font-size: 30px;
-    color: #ffffff;
-    font-weight: 200;
+    color: #2c8efe;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; 
-    margin-top: 1000px;
+    margin-top: 30px;
 }
+
 
 #AboutStudentDatabaseSystem{
     margin-left: 80px;
-
+    margin-top: 30px;
+   
 }
 .Maindivider{
     height: 2px;
@@ -294,8 +282,191 @@ nav a:nth-child(5):hover~span{
 .p{
     color: #ffffff;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-weight: 200;
+    /* font-weight: 200; */
     margin-right: 100px;
+    font-size: 20px;
+    margin-top: 5px;
+}
+
+
+/* MentorDiv */
+.Mentor{
+    display: flex;
+    margin-top: 300px;
+}
+
+.MentorText{
+    
+    font-size: 30px;
+    
+    font-weight: 200;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; 
+    margin-top: 100px;
+    
+}
+
+
+#MentorHeading{
+    font-size: 60px;
+    color: #2c8efe;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; 
+    /* margin-top: 350px; */
+    margin-left: 250px;
+    font-style:bold ;
+    
+}
+#MentorDescription{
+    font-size: 20px;
+    color: #ffffff;
+    font-weight: 200;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; 
+    margin-top: 50px;
+    margin-left: 100px;
+    margin-right: 200px;
+    font-style: italic;
+    
+}
+
+.MentorImage{
+    position: relative;
+    margin-top: -100px;
+    margin-right: 200px;
+    height: 600px;
+    width: 800px;
+    border-radius: 8px;
+    transition:0.3s ease-in-out;
+    
+    border-style: solid;
+    border-color: #fff;
+   
+}
+#Mentor_Image{
+   height: 100%;
+   width: 100%;
+   border-radius: 8px;
+   
+}
+
+#MentorNameDiv{
+    width: 100%;
+    height:60px;
+    color: #ffffff;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
+    font-size: 20px;
+    margin-top:5px;
+    
+    
+    margin-top: -80px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    backdrop-filter: blur(25px);
+}
+
+
+
+
+
+/* Team Members div */
+#TeamHeading{
+    text-align: center;
+    font-size: 70px;
+    color: #2c8efe;
+    
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; 
+    margin-top: 150px;
+}
+
+.TeamMembers{
+    display: Grid;
+    grid-template-columns: repeat(3,1fr);
+    
+   
+    
+}
+
+.Member{
+   
+    border-radius: 8px; 
+    margin-left: 50px;
+    height:400px;
+    width:400px;
+    margin-top: 100px;
+    margin-top: 50px;
+    border-radius: 8px;
+    border: #ffffff 2px solid;
+    transition:0.3s ease-in-out;
+    
+   
+    
+}
+
+.memberImage{
+    height:100%;
+    width:100%;
+    border-radius: 8px;
+    transition:0.3s ease-in-out;
+}
+
+.Member:hover{
+    box-shadow: 3px 3px 13px rgb(255, 255, 255);
+    transform: scale(1.02);
+}
+
+#TeamMemeber2 {  
+    display: grid;  
+    grid-template-columns: repeat(2,1fr);
+   
+}  
+
+#DebashishDiv{
+    margin-left: 300px;
+    margin-top: 100px;
+    
+}
+#ManishDiv{
+    margin-left: 850px;
+    margin-top: -400px;
+}
+
+
+#mainDivider{
+    height: 2px;
+    width: 100%;
+    margin: auto;
+    background-color: #ffffff;
+    margin-top: 100px;
+}
+
+#BuildBy{
+    color: #ffffff;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
+    font-size: 50px;
+    margin-top:100px;
+}
+
+#Classplus{
+    color:#ffffff;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
+    font-size: 70px;
+    margin-top:110px;
+    transition:0.3s ease-in-out;
+}
+   
+#Classplus:hover{
+    color:#006eff;
+    
+    
+}
+/* About us */
+#Aboutus{
+    text-align: center;
+    font-size: 30px;
+    color: #2c8efe;
+    font-weight: 200;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; 
+    margin-top: 100px;
 }
 .divider1{
     height: 1px;
@@ -328,14 +499,14 @@ nav a:nth-child(5):hover~span{
     font-size: 20px;
 }
 .contactpath{
-    margin-top: 10px;
+    margin-top: 20px;
     font-size: 15px;
     
 }
 
 .Right{
     color:white;
-    margin-left: 340px;
+    margin-left: 300px;
     
     margin-top: 40px;
 }
@@ -345,5 +516,10 @@ nav a:nth-child(5):hover~span{
 .location{
   
     font-size: 15px;
+    margin-top:10px;
     
+}
+
+#AllRights{
+   margin-top: 20px;
 }

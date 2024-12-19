@@ -27,7 +27,7 @@ import { initializeApp } from 'https://www.gstatic.com/firebasejs/11.0.2/firebas
       try {
         await signInWithEmailAndPassword(auth, email, password);
         alert('Logged in successfully!');
-        window.location.href = '/Student Login/teacher.html';
+        window.location.href = '/Student-Login/teacher.html';
       } catch (error) {
         alert(error.message);
       }

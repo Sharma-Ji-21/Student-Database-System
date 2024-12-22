@@ -1,0 +1,121 @@
+* {  
+    box-sizing: border-box; 
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;  /* Ensure the body takes the full height of the viewport */
+    overflow-y: auto;  /* Allow vertical scrolling */
+    font-family: Arial, sans-serif;
+}
+
+.screen {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align items at the top */
+    width: 100%;
+    height: 100vh;  /* Take full height of the viewport */
+}
+
+.background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;  /* Adjust container size */
+    padding: 60px;
+    border-radius: 10px;
+    backdrop-filter: blur(50px);
+    border: 1px solid transparent;
+    background-clip: padding-box, border-box;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
+    margin-top: 100px;  /* Ensure content doesn't overlap with the header */
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+h1 {
+    color: #ffffff;
+    font-size: 50px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));  /* Use a grid layout */
+    gap: 20px;
+    padding: 2rem;
+}
+
+.card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+}
+
+.card h3 {
+    margin-top: 0;
+    color: #6200ea;
+}
+
+.card p {
+    margin: 0.5rem 0;
+}
+
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #6200ea;
+    color: #fff;
+}
+
+.add-student {
+    position: fixed;  /* Make the button fixed at the top-right corner */
+    top: 20px;
+    right: 20px;
+    padding: 15px 30px;
+    background: transparent;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 24px;
+    transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+    z-index: 1;  /* Ensure button is above other content */
+}
+
+.add-student:hover {
+    background-color: #ffffff;
+    transform: scale(1.05);
+    box-shadow: 0 4px 20px rgba(0, 106, 255, 0.3);
+    color: black;
+}
+footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #6200ea;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+    border-top: 1px solid #fff;
+}

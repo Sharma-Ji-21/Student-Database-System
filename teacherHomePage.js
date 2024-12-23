@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
-import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-database.js";
+import { getDatabase, ref, onValue, remove } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-database.js";
 
 // Firebase configuration (reuse your existing config)
 const firebaseConfig = {
@@ -30,7 +30,8 @@ window.onload = function () {
             for (const studentId in studentsData) {
                 const student = studentsData[studentId];
                 const studentName = student.name || 'Unnamed';
-                const tasks = student.tasks || {};
+                const email = student.email || 'No Email Provided';
+                // const tasks = student.tasks || {};
 
                 // Create a card for each student
                 const card = document.createElement('div');
@@ -38,21 +39,36 @@ window.onload = function () {
                 card.innerHTML = `
                     <h3>${studentName}</h3>
                     <p>Roll Number: ${student.rollNumber}</p>
-                    <div class="tasks">
-                        <h4>Tasks:</h4>
-                        ${Object.keys(tasks).length > 0 
-                            ? Object.entries(tasks)
-                                .map(([taskId, task]) => `<p>- ${task.task} (Assigned by: ${task.assignedBy})</p>`)
-                                .join('') 
-                            : '<p>No tasks assigned yet.</p>'}
-                    </div>
+                    <p>Email: ${email}</p>
+                    <button class="delete-btn" data-id="${studentId}">Delete</button>
                 `;
 
                 // Append card to wrapper
                 wrapper.appendChild(card);
             }
+
+            // Add event listeners to delete buttons
+            const deleteButtons = document.querySelectorAll('.delete-btn');
+            deleteButtons.forEach(button => {
+                button.addEventListener('click', (event) => {
+                    const studentId = event.target.getAttribute('data-id');
+                    deleteStudent(studentId);
+                });
+            });
         } else {
             wrapper.innerHTML = '<p>No student data found.</p>';
         }
     });
 };
+
+// Function to delete student from database
+function deleteStudent(studentId) {
+    const studentRef = ref(database, `students/${studentId}`);
+    remove(studentRef)
+        .then(() => {
+            alert(`Student has been deleted successfully.`);
+        })
+        .catch((error) => {
+            console.error(`Error deleting student: ${error}`);
+        });
+}

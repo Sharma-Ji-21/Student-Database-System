@@ -16,11 +16,11 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
 
-// Dynamically populate tasks for the teacher
+// Dynamically populate students for the teacher
 window.onload = function () {
     const wrapper = document.querySelector('.wrapper');
 
-    // Reference to students and their tasks
+    // Reference to students in the database
     const studentsRef = ref(database, 'students');
     onValue(studentsRef, (snapshot) => {
         if (snapshot.exists()) {
@@ -30,7 +30,7 @@ window.onload = function () {
             for (const studentId in studentsData) {
                 const student = studentsData[studentId];
                 const studentName = student.name || 'Unnamed';
-                const tasks = student.tasks || {};
+                const email = student.email || 'No Email Provided';
 
                 // Create a card for each student
                 const card = document.createElement('div');
@@ -38,14 +38,7 @@ window.onload = function () {
                 card.innerHTML = `
                     <h3>${studentName}</h3>
                     <p>Roll Number: ${student.rollNumber}</p>
-                    <div class="tasks">
-                        <h4>Tasks:</h4>
-                        ${Object.keys(tasks).length > 0 
-                            ? Object.entries(tasks)
-                                .map(([taskId, task]) => `<p>- ${task.task} (Assigned by: ${task.assignedBy})</p>`)
-                                .join('') 
-                            : '<p>No tasks assigned yet.</p>'}
-                    </div>
+                    <p>Email: ${email}</p>
                 `;
 
                 // Append card to wrapper

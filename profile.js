@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
-import { getAuth } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-auth.js";
+import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-auth.js";
 import { getDatabase, ref, get } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-database.js";
 
 // Firebase configuration
@@ -18,30 +18,28 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth();
 const database = getDatabase(app);
 
-// Fetch and populate student details on page load
-window.onload = function () {
-    const user = auth.currentUser;
-
-    if (!user) {
+// Fetch and populate student details when user is authenticated
+onAuthStateChanged(auth, (user) => {
+    if (user) {
+        // User is logged in
+        get(ref(database, `students/${user.uid}`))
+            .then((snapshot) => {
+                if (snapshot.exists()) {
+                    const studentDetails = snapshot.val();
+                    document.getElementById("student-name").textContent = studentDetails.name || "No Name Provided";
+                    document.getElementById("roll-number").textContent = `Roll Number: ${studentDetails.rollNumber || "N/A"}`;
+                    document.getElementById("student-email").textContent = studentDetails.email || "No Email Provided";
+                } else {
+                    alert("No data found for this user.");
+                }
+            })
+            .catch((error) => {
+                console.error("Error fetching user details:", error);
+                alert("Failed to load profile details.");
+            });
+    } else {
+        // No user is logged in, redirect to login page
         alert("No logged-in user found. Redirecting to login page.");
-        window.location.href = "studentLogin.html"; // Redirect to login page if not logged in
-        return;
+        window.location.href = "studentLogin.html";
     }
-
-    // Fetch user details from Firebase Database
-    get(ref(database, `students/${user.uid}`))
-        .then((snapshot) => {
-            if (snapshot.exists()) {
-                const studentDetails = snapshot.val();
-                document.getElementById("student-name").textContent = studentDetails.name || "No Name Provided";
-                document.getElementById("roll-number").textContent = `Roll Number: ${studentDetails.rollNumber || "N/A"}`;
-                document.getElementById("student-email").textContent = studentDetails.email || "No Email Provided";
-            } else {
-                alert("No data found for this user.");
-            }
-        })
-        .catch((error) => {
-            console.error("Error fetching user details:", error);
-            alert("Failed to load profile details.");
-        });
-};
+});

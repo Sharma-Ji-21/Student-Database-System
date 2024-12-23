@@ -67,7 +67,7 @@ function handleLogin(event) {
                 // User exists in the database
                 localStorage.setItem('studentDetails', JSON.stringify(snapshot.val()));  
                 alert('Login successful!');  
-                window.location.href = 'student.html';  
+                window.location.href = 'studentProfileView.html';  
             } else {  
                 // User does not exist in the database
                 alert('No data found for this user. Login not allowed.');  

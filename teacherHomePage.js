@@ -16,53 +16,80 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
 
-// Dynamically populate tasks for the teacher
+// Filter students based on search query
+function filterStudents(query, studentsData) {
+    const filteredStudents = {};
+    for (const studentId in studentsData) {
+        const student = studentsData[studentId];
+        const studentName = student.name || '';
+        if (studentName.toLowerCase().includes(query.toLowerCase())) {
+            filteredStudents[studentId] = student;
+        }
+    }
+    return filteredStudents;
+}
+
+// Populate student cards dynamically
+function populateStudents(studentsData) {
+    const wrapper = document.querySelector('.wrapper');
+    wrapper.innerHTML = ''; // Clear existing cards before appending new ones
+
+    for (const studentId in studentsData) {
+        const student = studentsData[studentId];
+        const studentName = student.name || 'Unnamed';
+        const email = student.email || 'No Email Provided';
+
+        // Create a card for each student
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.innerHTML = `
+            <h3>${studentName}</h3>
+            <p>Roll Number: ${student.rollNumber}</p>
+            <p>Email: ${email}</p>
+            <button class="edit-btn" data-id="${studentId}">Edit</button>
+            <button class="delete-btn" data-id="${studentId}">Delete</button>
+        `;
+
+        // Append card to wrapper
+        wrapper.appendChild(card);
+    }
+
+    // Add event listeners to edit buttons
+    const editButtons = document.querySelectorAll('.edit-btn');
+    editButtons.forEach(button => {
+        button.addEventListener('click', (event) => {
+            const studentId = event.target.getAttribute('data-id');
+            window.location.href = `teacherEditStudent.html?id=${studentId}`;
+        });
+    });
+
+    // Add event listeners to delete buttons
+    const deleteButtons = document.querySelectorAll('.delete-btn');
+    deleteButtons.forEach(button => {
+        button.addEventListener('click', (event) => {
+            const studentId = event.target.getAttribute('data-id');
+            deleteStudent(studentId);
+        });
+    });
+}
+
+// Initialize search functionality
 window.onload = function () {
     const wrapper = document.querySelector('.wrapper');
+    const searchBar = document.getElementById('search-bar');
 
     // Reference to students and their tasks
     const studentsRef = ref(database, 'students');
     onValue(studentsRef, (snapshot) => {
         if (snapshot.exists()) {
             const studentsData = snapshot.val();
-            wrapper.innerHTML = ''; // Clear existing cards before appending new ones
+            populateStudents(studentsData);
 
-            for (const studentId in studentsData) {
-                const student = studentsData[studentId];
-                const studentName = student.name || 'Unnamed';
-                const email = student.email || 'No Email Provided';
-
-                // Create a card for each student
-                const card = document.createElement('div');
-                card.className = 'card';
-                card.innerHTML = `
-                    <h3>${studentName}</h3>
-                    <p>Roll Number: ${student.rollNumber}</p>
-                    <p>Email: ${email}</p>
-                    <button class="edit-btn" data-id="${studentId}">Edit</button>
-                    <button class="delete-btn" data-id="${studentId}">Delete</button>
-                `;
-
-                // Append card to wrapper
-                wrapper.appendChild(card);
-            }
-
-            // Add event listeners to edit buttons
-            const editButtons = document.querySelectorAll('.edit-btn');
-            editButtons.forEach(button => {
-                button.addEventListener('click', (event) => {
-                    const studentId = event.target.getAttribute('data-id');
-                    window.location.href = `teacherEditStudent.html?id=${studentId}`;
-                });
-            });
-
-            // Add event listeners to delete buttons
-            const deleteButtons = document.querySelectorAll('.delete-btn');
-            deleteButtons.forEach(button => {
-                button.addEventListener('click', (event) => {
-                    const studentId = event.target.getAttribute('data-id');
-                    deleteStudent(studentId);
-                });
+            // Add search bar event listener
+            searchBar.addEventListener('input', (event) => {
+                const query = event.target.value;
+                const filteredStudents = filterStudents(query, studentsData);
+                populateStudents(filteredStudents);
             });
         } else {
             wrapper.innerHTML = '<p>No student data found.</p>';

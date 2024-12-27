@@ -166,3 +166,30 @@ footer{
     background-color: #004de6; /* Even darker blue when clicked */
     transform: scale(0.95); /* Slightly shrink on click */
 }
+
+#search-bar {
+    display: block;
+    margin: 0 auto; /* Center align */
+    padding: 10px 20px;
+    width: 50%;
+    max-width: 600px;
+    font-size: 18px;
+    font-family: Arial, sans-serif;
+    color: #333; /* Dark text for readability */
+    background-color: #ffffff; /* White background for contrast */
+    border: 2px solid #4d94ff; /* Theme-aligned border color */
+    border-radius: 25px; /* Smooth rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#search-bar:focus {
+    outline: none; /* Remove default focus outline */
+    border-color: #1a75ff; /* Highlight border on focus */
+    box-shadow: 0 4px 15px rgba(26, 117, 255, 0.4); /* Subtle glow effect on focus */
+}
+
+#search-bar::placeholder {
+    color: #aaa; /* Light gray for placeholder text */
+    font-style: italic; /* Italicized placeholder for differentiation */
+}

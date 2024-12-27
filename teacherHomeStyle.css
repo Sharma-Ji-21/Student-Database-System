@@ -142,3 +142,27 @@ footer{
     background-color: #cc0000; /* Even darker red when clicked */
     transform: scale(0.95); /* Slightly shrink on click */
 }
+
+.edit-btn {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: #4d94ff; /* Bright blue for edit */
+    color: #ffffff; /* White text */
+    border: none; /* Remove default border */
+    border-radius: 8px; /* Rounded corners */
+    font-size: 16px; /* Font size */
+    font-family: Arial, sans-serif; /* Consistent font */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.edit-btn:hover {
+    background-color: #1a75ff; /* Darker blue on hover */
+    box-shadow: 0 4px 15px rgba(26, 117, 255, 0.4); /* Subtle shadow */
+    transform: scale(1.05); /* Slight scaling on hover */
+}
+
+.edit-btn:active {
+    background-color: #004de6; /* Even darker blue when clicked */
+    transform: scale(0.95); /* Slightly shrink on click */
+}

@@ -31,7 +31,6 @@ window.onload = function () {
                 const student = studentsData[studentId];
                 const studentName = student.name || 'Unnamed';
                 const email = student.email || 'No Email Provided';
-                // const tasks = student.tasks || {};
 
                 // Create a card for each student
                 const card = document.createElement('div');
@@ -40,12 +39,22 @@ window.onload = function () {
                     <h3>${studentName}</h3>
                     <p>Roll Number: ${student.rollNumber}</p>
                     <p>Email: ${email}</p>
+                    <button class="edit-btn" data-id="${studentId}">Edit</button>
                     <button class="delete-btn" data-id="${studentId}">Delete</button>
                 `;
 
                 // Append card to wrapper
                 wrapper.appendChild(card);
             }
+
+            // Add event listeners to edit buttons
+            const editButtons = document.querySelectorAll('.edit-btn');
+            editButtons.forEach(button => {
+                button.addEventListener('click', (event) => {
+                    const studentId = event.target.getAttribute('data-id');
+                    window.location.href = `teacherEditStudent.html?id=${studentId}`;
+                });
+            });
 
             // Add event listeners to delete buttons
             const deleteButtons = document.querySelectorAll('.delete-btn');

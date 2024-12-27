@@ -1,5 +1,5 @@
 
-/* Dark Mode for Teacher Page */
+
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
@@ -11,7 +11,27 @@ body {
     align-items: center;
     min-height: 100vh;
 }
+.contaier{
+    display: flex;
+    
+    /* flex-direction: column; */
+}
 
+/* .maindiv{
+    margin-left: -200px;
+
+
+
+} */
+
+#heading{
+    text-align: center;
+    margin-bottom: 20px;
+    color: #6200ea;
+    font-size: 38px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
 form {
     background: #181818;
     border-radius: 8px;
@@ -22,12 +42,7 @@ form {
     text-align: center;
 }
 
-h1 {
-    font-size: 26px;
-    font-weight: bold;
-    margin-bottom: 25px;
-    color: #ffffff;
-}
+
 
 input {
     display: block;
@@ -55,12 +70,12 @@ button {
     padding: 14px;
     font-size: 16px;
     font-weight: bold;
-    color: #fff;
-    background-color: #2563eb;
+    color: #000000;
+    background-color: #ffffff;
     border: none;
     border-radius: 6px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition:  0.3s ease;
     margin-top: 18px;
 }
 
@@ -73,16 +88,23 @@ button:disabled {
     cursor: not-allowed;
 }
 
-@media (max-width: 480px) {
-    form {
-        padding: 20px 25px;
-    }
+#cancel-btn{
+   height: 40px;
+   width: 100px;
+   background-color: #ffffff;
+   border: none;
+   border-radius: 8px;
+   padding: 10px;
+   font-size: 16px;
+   font-weight: bold;
+   color: #000000;
+   cursor: pointer;
+   transition: all 0.3s ease-in-out;
+   margin-left:160px;
+}
 
-    h1 {
-        font-size: 22px;
-    }
-
-    input, button {
-        font-size: 15px;
-    }
+#cancel-btn:hover{
+    background-color: #1d4fcb;
+    box-shadow: 0 4px 15px rgb(255, 255, 255);
+    transform: scale(1.05);
 }

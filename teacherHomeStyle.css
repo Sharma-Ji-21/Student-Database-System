@@ -42,7 +42,7 @@ body {
     border: 1px solid transparent;
     background-clip: padding-box, border-box;
     box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
-    margin-top: 100px;  /* Ensure content doesn't overlap with the header */
+    margin-top: 100px; 
 }
 
 header {

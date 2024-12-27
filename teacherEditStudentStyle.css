@@ -1,0 +1,87 @@
+/* Dark Mode for Teacher Edit Page */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #0d0d0d;
+    color: #eaeaea;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+form {
+    background: #1a1a1a;
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6);
+    padding: 30px 40px;
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+}
+
+h1 {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    color: #ffffff;
+}
+
+input {
+    display: block;
+    width: calc(100% - 32px);
+    margin: 14px auto;
+    padding: 14px;
+    font-size: 18px;
+    border: 1px solid #555;
+    border-radius: 8px;
+    background-color: #262626;
+    color: #eaeaea;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus {
+    border-color: #5a9fff;
+    box-shadow: 0 0 6px rgba(90, 159, 255, 0.4);
+    outline: none;
+}
+
+button {
+    display: block;
+    width: 100%;
+    padding: 16px;
+    font-size: 17px;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #2d68ea;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: #2557c7;
+}
+
+button:disabled {
+    background-color: #444;
+    cursor: not-allowed;
+}
+
+@media (max-width: 480px) {
+    form {
+        padding: 25px 30px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    input, button {
+        font-size: 16px;
+    }
+}

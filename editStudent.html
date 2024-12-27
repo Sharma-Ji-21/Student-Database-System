@@ -7,19 +7,23 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Edit Student Details</h1>
-    <form id="edit-form">
-        <label for="student-name-input">Name:</label>
-        <input type="text" id="student-name-input" placeholder="Enter new name" required />
+    
+    <div class="container">
+        <h1 id="heading">Edit Student Details</h1>
+        <div class="maindiv">
+            <form id="edit-form">
+                <label for="student-name-input">Name:</label>
+                <input type="text" id="student-name-input" placeholder="Enter new name" required />
+                <br />
+                <label for="roll-number-input">Roll Number:</label>
+                <input type="text" id="roll-number-input" placeholder="Enter new roll number" required />
+                <br />
+                <button id="save-btn" type="submit">Save Changes</button>
+            </form>
+        </div>
         <br />
-        <label for="roll-number-input">Roll Number:</label>
-        <input type="text" id="roll-number-input" placeholder="Enter new roll number" required />
-        <br />
-        <button id="save-btn" type="submit">Save Changes</button>
-    </form>
-    <br />
-    <button id="cancel-btn">Cancel</button>
-
+        <button id="cancel-btn">Cancel</button>
+    </div>
     <script type="module" src="editStudent.js"></script>
 </body>
 </html>

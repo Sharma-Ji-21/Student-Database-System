@@ -1,7 +1,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
 import { getDatabase, ref, onValue, remove } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-database.js";
 
-// Firebase configuration (reuse your existing config)
+
 const firebaseConfig = {
     apiKey: "AIzaSyAxbGQ_pRFpXN5CunUapm9MWjDhBYaCaT8",
     authDomain: "database-sds.firebaseapp.com",
@@ -12,11 +12,11 @@ const firebaseConfig = {
     databaseURL: "https://database-sds-default-rtdb.firebaseio.com/"
 };
 
-// Initialize Firebase services
+
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
 
-// Filter students based on search query
+
 function filterStudents(query, studentsData) {
     const filteredStudents = {};
     for (const studentId in studentsData) {
@@ -29,17 +29,17 @@ function filterStudents(query, studentsData) {
     return filteredStudents;
 }
 
-// Populate student cards dynamically
+
 function populateStudents(studentsData) {
     const wrapper = document.querySelector('.wrapper');
-    wrapper.innerHTML = ''; // Clear existing cards before appending new ones
+    wrapper.innerHTML = ''; 
 
     for (const studentId in studentsData) {
         const student = studentsData[studentId];
         const studentName = student.name || 'Unnamed';
         const email = student.email || 'No Email Provided';
 
-        // Create a card for each student
+        
         const card = document.createElement('div');
         card.className = 'card';
         card.innerHTML = `
@@ -50,11 +50,11 @@ function populateStudents(studentsData) {
             <button class="delete-btn" data-id="${studentId}">Delete</button>
         `;
 
-        // Append card to wrapper
+      
         wrapper.appendChild(card);
     }
 
-    // Add event listeners to edit buttons
+    
     const editButtons = document.querySelectorAll('.edit-btn');
     editButtons.forEach(button => {
         button.addEventListener('click', (event) => {
@@ -63,7 +63,7 @@ function populateStudents(studentsData) {
         });
     });
 
-    // Add event listeners to delete buttons
+    
     const deleteButtons = document.querySelectorAll('.delete-btn');
     deleteButtons.forEach(button => {
         button.addEventListener('click', (event) => {
@@ -73,19 +73,19 @@ function populateStudents(studentsData) {
     });
 }
 
-// Initialize search functionality
+
 window.onload = function () {
     const wrapper = document.querySelector('.wrapper');
     const searchBar = document.getElementById('search-bar');
 
-    // Reference to students and their tasks
+   
     const studentsRef = ref(database, 'students');
     onValue(studentsRef, (snapshot) => {
         if (snapshot.exists()) {
             const studentsData = snapshot.val();
             populateStudents(studentsData);
 
-            // Add search bar event listener
+           
             searchBar.addEventListener('input', (event) => {
                 const query = event.target.value;
                 const filteredStudents = filterStudents(query, studentsData);
@@ -97,7 +97,7 @@ window.onload = function () {
     });
 };
 
-// Function to delete student from database
+
 function deleteStudent(studentId) {
     const studentRef = ref(database, `students/${studentId}`);
     remove(studentRef)

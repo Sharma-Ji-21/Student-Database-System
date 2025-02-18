@@ -101,10 +101,10 @@ To run the **Student Database System** locally, follow the steps below:
 
 ## 5. Contributors
  **Om Sharma** - Project Lead and Developer
- **Sachin Yadav** - Home Page UI/UX
- **Arnab Boro** - Backend Developer 
- **Manish Y M** - Features implementation, UI
- **Debashish Giri** - Custom Styling
+ **Sachin Yadav** - Complete Css Lead
+ **Arnab Boro** - Backend Developer
+ **Manish Y M** - Helping Hand
+ **Debashish Giri** - login Selector Page & Helping Css
 
 
 6. License
